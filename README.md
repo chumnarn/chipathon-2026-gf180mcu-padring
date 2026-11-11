@@ -57,6 +57,8 @@ make SLOT=workshop librelane-padring
 find librelane/runs -type f \( -iname '*padring*' -o -name '*.gds' -o -name '*.def' \) | sort
 ```
 
+![Pad Ring](pad-ring.png)
+
 Python flow รัน lint และ synthesis เพื่อให้ได้ instance จริง จากนั้นทำ pre-PnR STA, floorplan, ผูก power nets และเรียก `OpenROAD.PadRing` ก่อนวาง macro แบบระบุพิกัด, stream out และสร้าง seal ring หาไดเรกทอรี run จาก log แล้วเปิด GDS ของขั้น SealRing ด้วย `klayout /path/to/chip_top.gds` หรือเปิด DEF/ODB ของขั้น PadRing เพื่ออ่านชื่อ instance และพิกัด ผลลัพธ์อยู่ใน run directory ขั้นตอนนี้จบที่ seal ring ก่อน core placement, CTS, routing และ signoff
 
 ตรวจ 4 รายการใน GUI
